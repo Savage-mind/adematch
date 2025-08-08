@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Opening Night at Amsterdam Arena",
+    "date": "2025-10-17",
+    "venue": "Amsterdam Arena",
+    "artists": ["Armin van Buuren", "David Guetta", "Nora En Pure"]
+  },
+  {
+    "name": "Techno Tuesday at Melkweg",
+    "date": "2025-10-18",
+    "venue": "Melkweg",
+    "artists": ["Charlotte de Witte", "Adam Beyer", "Amelie Lens"]
+  },
+  {
+    "name": "Deep House Delight at Paradiso",
+    "date": "2025-10-19",
+    "venue": "Paradiso",
+    "artists": ["Solomun", "John Digweed", "Lane 8"]
+  },
+  {
+    "name": "Closing Festival at NDSM Docklands",
+    "date": "2025-10-20",
+    "venue": "NDSM Docklands",
+    "artists": ["Carl Cox", "Nina Kraviz", "ANNA"]
+  },
+  {
+    "name": "Hardcore Havoc at Ziggo Dome",
+    "date": "2025-10-21",
+    "venue": "Ziggo Dome",
+    "artists": ["Angerfist", "Miss K8", "Dr. Peacock"]
+  }
+]
