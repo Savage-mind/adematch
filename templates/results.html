@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Matches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Matched Events</h1>
+        {% if matches %}
+            <ul class="event-list">
+            {% for event in matches %}
+                <li>
+                    <h2>{{ event['name'] }}</h2>
+                    <p>Date: {{ event['date'] }}</p>
+                    <p>Venue: {{ event['venue'] }}</p>
+                    <p>Artists: {{ event['artists']|join(', ') }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matches yet. Go back and swipe some more!</p>
+        {% endif %}
+        <a href="{{ url_for('swipe') }}" class="btn">Back to swiping</a>
+    </div>
+    {% if not session.get('cookies_accepted') %}
+    <div class="cookie-banner" id="cookie-banner">
+        <p>We use cookies to ensure you get the best experience. By using our site, you agree to our cookie policy.</p>
+        <button onclick="acceptCookies()" class="btn">Accept</button>
+    </div>
+    <script>
+        function acceptCookies() {
+            fetch('/accept_cookies', { method: 'POST' })
+                .then(() => {
+                    document.getElementById('cookie-banner').style.display = 'none';
+                });
+        }
+    </script>
+    {% endif %}
+</body>
+</html>
