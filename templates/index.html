@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADE Artist Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to ADE Artist Matcher</h1>
+        <p>Log in with your Spotify account to find ADE events featuring artists you love.</p>
+        <a href="{{ url_for('login') }}" class="btn">Log in with Spotify</a>
+    </div>
+    <!-- Cookie banner -->
+    {% if not session.get('cookies_accepted') %}
+    <div class="cookie-banner" id="cookie-banner">
+        <p>We use cookies to ensure you get the best experience. By using our site, you agree to our cookie policy.</p>
+        <button onclick="acceptCookies()" class="btn">Accept</button>
+    </div>
+    <script>
+        function acceptCookies() {
+            fetch('/accept_cookies', { method: 'POST' })
+                .then(() => {
+                    document.getElementById('cookie-banner').style.display = 'none';
+                });
+        }
+    </script>
+    {% endif %}
+</body>
+</html>
